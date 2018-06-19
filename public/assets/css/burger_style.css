@@ -1,0 +1,43 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url('/assets/img/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.ui.header {
+    padding: 5rem 2rem 0 0;
+    font-size: 5rem;
+    font-weight: bold;
+    line-height: 2em;
+    text-transform:uppercase;
+    color: rgba(238, 235, 235, 0.87);
+}
+
+.ui.table {
+    background: #fff0;
+    margin: 1em 0;
+    border-radius: 1rem;
+    color: rgb(255, 255, 255);
+    -webkit-box-shadow: -1px 12px 20px 5px rgba(0, 0, 0, 0.54);
+    box-shadow: -1px 12px 20px 5px rgba(0, 0, 0, 0.54);
+}
+
+.devourBtn{
+    padding:0;
+}
+
+
+form .ui.button {
+    font-size: 1.5rem;
+    padding: 0.7rem;
+    letter-spacing:0.1rem; 
+}
+
+
+
+
