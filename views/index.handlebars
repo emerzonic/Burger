@@ -19,7 +19,7 @@
                                 <td class="idTableData">{{this.ID}}</td>
                                 <td>{{this.burger_name}}</td>
                                 <td class="devourBtn">
-                                    <button burgerId="{{this.ID}}" status="{{this.devoured}}" class="devourBurger ui button fluid">Devour It!</button>
+                                    <button burgerId="{{this.ID}}" status="{{this.devoured}}" class="devourBurger ui button fluid"> <i class="times icon"></i>Devour It!</button>
                                 </td>
                             </tr>
                             {{/unless}} {{/each}}
@@ -45,7 +45,7 @@
                             {{#each burgers}} {{#if devoured}}
                             <tr>
                                 <td class="idTableData">{{this.ID}}</td>
-                                <td><i class="times icon"></i>{{ this.burger_name}}</td>
+                                <td>{{ this.burger_name}}</td>
                             </tr>
                             {{/if}} {{/each}}
                         </tbody>
