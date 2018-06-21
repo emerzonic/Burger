@@ -1,38 +1,38 @@
-var connection = require('./connection.js');
+//requiring database connection 
+const connection = require('./connection.js');
 
-var orm = {
+const orm = {
     //Retrieve all burgers from the database
-    selectAll: function (table, cb) {
-        var queryString = "SELECT * FROM ??";
+    getAllBurgers: function (table, callBack) {
+        let queryString = "SELECT * FROM ??";
         connection.query(queryString, table, function (err, result) {
             if (err) {
                 console.log(err);
             }
-            cb(result);
+            callBack(err, result);
         });
     },
 
     //add new burger
-    createBurger: function (table, colOne, colTwo, colOneValue, colTwoValue) {
-        var queryString = "INSERT INTO ?? (??,??)VALUES (?,?)";
+    addNewBurger: function (table, colOne, colTwo, colOneValue, colTwoValue, callBack) {
+        let queryString = "INSERT INTO ?? (??,??)VALUES (?,?)";
         connection.query(queryString, [table, colOne, colTwo, colOneValue, colTwoValue], function (err, result) {
             if (err) {
                 console.log(err);
             }
-            // cb(result);
+            callBack(err, result);
         });
     },
 
     //Update one burger in the database
-    UpdateOne: function (table, colToUpdate, valueToUpdate, lookupCol, lookupId) {
-        var queryString = 'UPDATE ?? SET ?? = ? WHERE ?? = ?';
+    updateBurger: function (table, colToUpdate, valueToUpdate, lookupCol, lookupId, callBack) {
+        let queryString = 'UPDATE ?? SET ?? = ? WHERE ?? = ?';
         connection.query(queryString, [table, colToUpdate, valueToUpdate, lookupCol, lookupId], function (err, result) {
             if (err) {
                 console.log(err);
             }
-            // console.log(result);
+            callBack(err, result);
         });
-
     },
 };
 

@@ -1,7 +1,11 @@
-var express = require('express');
-var burger = require('../models/burger');
-var router = express.Router();
-var bodyParser = require('body-parser');
+//requiring packages and models
+const express = require('express'),
+   bodyParser = require('body-parser'),
+       burger = require('../models/burger');
+
+    //create express router
+    const router = express.Router();
+
 
 router.use(bodyParser.urlencoded({
     extended: true
@@ -16,33 +20,43 @@ router.get('/', function (req, res) {
 
 //Home page route
 router.get('/index', function (req, res) {
-    burger.selectAll(function (data) {
-        res.render("index.handlebars", {
-            burgers: data
-        });
+    burger.getAllBurgers(function (err, data) {
+        if (err) {
+            console.log(err);
+            res.redirect('/index');
+        } else {
+            res.render("index.handlebars", {
+                burgers: data
+            });
+        }
     });
 });
 
 
 //post route to submit burger
 router.post('/index', function (req, res) {
-    burger.create("burger_name", "devoured", req.body.burger, false, function (err) {
-        // res.redirect('/index');
+    burger.addNewBurger("burger_name", "devoured", req.body.burger, false, function (err, data) {
+        if (err) {
+            console.log(err);
+            res.redirect('/index');
+        } else {
+            res.redirect('/index');
+        }
     });
-    res.redirect('/index');
 });
 
 
 //put route to update burger status
 router.put('/index/:id', function (req, res) {
-    var devouredValue = req.body.devoured;
-    var burgerID = req.params.id;
-    burger.Update("devoured", devouredValue, "ID", burgerID, function (err) {
-        // res.redirect('/index');
+    let burgerID = req.params.id;
+    burger.updateBurger("devoured", true, "ID", burgerID, function (err, data) {
+        if (err) {
+            console.log(err);
+            res.redirect(303, '/index');
+        } else {
+            res.redirect(303, '/index');
+        }
     });
-    res.redirect(303, '/index');
 });
-
-
 
 module.exports = router;

@@ -1,21 +1,19 @@
+//listen for click event on the "devour it" button
 $('.newburgerTable').on('click', '.devourBurger', function () {
     ($(this).attr('status', 1));
-    var id = ($(this).attr('burgerId'));
-    var devoured = ($(this).attr('status'));
-
+    const id = ($(this).attr('burgerId'));
+    //send a PUT request with the burger id
     $.ajax("/index/" + id, {
-        type: "PUT",
-        data: {
-            devoured: devoured
-        }
+        type: "PUT"
     }).then(
         function () {
             // Reload the page to update tables
             window.location.reload(true);
-
         });
 });
 
+
+//validate form data before submit
 $(function validate() {
     $('.ui.form')
         .form({
@@ -23,12 +21,12 @@ $(function validate() {
                 burger: {
                     identifier: 'burger',
                     rules: [{
-                        type: 'empty',
+                        type: 'empty',//field is not empty
                         prompt: 'Burger name can not be empty'
                     }, {
-                        type: 'minLength[3]',
+                        type: 'minLength[3]',//not less than 3 characters
                     }, {
-                        type: 'maxLength[20]',
+                        type: 'maxLength[15]',//not more than 15 characters long
                     }]
                 }
             }
