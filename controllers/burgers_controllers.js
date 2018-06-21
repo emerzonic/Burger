@@ -23,7 +23,7 @@ router.get('/index', function (req, res) {
     burger.getAllBurgers(function (err, data) {
         if (err) {
             console.log(err);
-            res.redirect('/index');
+            // res.redirect('/index');
         } else {
             res.render("index.handlebars", {
                 burgers: data
