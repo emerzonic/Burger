@@ -26,7 +26,7 @@ $(function validate() {
                     }, {
                         type: 'minLength[3]',//not less than 3 characters
                     }, {
-                        type: 'maxLength[15]',//not more than 15 characters long
+                        type: 'maxLength[20]',//not more than 20 characters long
                     }]
                 }
             }

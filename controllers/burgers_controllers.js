@@ -6,7 +6,7 @@ const express = require('express'),
     //create express router
     const router = express.Router();
 
-
+//router use body-parser
 router.use(bodyParser.urlencoded({
     extended: true
 }));

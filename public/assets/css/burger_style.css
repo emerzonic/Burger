@@ -4,6 +4,7 @@ html {
 
 body {
     background-image: url('/assets/img/bg.jpg');
+    background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
@@ -38,6 +39,12 @@ form .ui.button {
     letter-spacing:0.1rem; 
 }
 
+.contentDiv{
+    margin:0.2rem;
+}
 
+.idTableData{
+   width:3rem;
+}
 
 
