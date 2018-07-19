@@ -1,7 +1,7 @@
 //listen for click event on the "devour it" button
 $('.newburgerTable').on('click', '.devourBurger', function () {
     ($(this).attr('status', 1));
-    const id = ($(this).attr('burgerId'));
+    var id = ($(this).attr('burgerId'));
     //send a PUT request with the burger id
     $.ajax("/index/" + id, {
         type: "PUT"
